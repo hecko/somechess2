@@ -1,0 +1,290 @@
+/*		Some Chess, a PHP multi-player chess server. 	*/
+/*		Copyright (C) 2007 Jon Link						*/
+body {
+	background:#bababa url('img/back.gif') repeat;
+	color:#444;
+	font:0.8em Lucida Grande, Tahoma, sans-serif
+}
+a, .small_window p{	
+	color:#555;
+	text-decoration:none
+}
+a:hover, a.gamelink:hover {color:#6699cc}
+p {
+	margin-top:0.25em;
+	margin-bottom:0.2em
+}
+h1, h2, h3 {clear:both;text-align:left;}
+h2 {
+	font-size:1em;
+	margin:0 0 0.95em 0.5em
+}
+h3 {
+	font-size:0.9em;
+	margin:0 0 0.4em 0.5em
+}
+ul {padding:0;margin:0}
+li {margin-left:2em}
+#container {
+	background:#b5b5b5;
+	border:2px solid #7c7c7c;
+	position:absolute;
+	top:5em;
+	left:1.5em;
+	width:55em;
+	height:45em
+}
+.subcontainer {float:left}
+#menu {
+	background:#222 url('img/bannerback.gif') bottom;
+	color:#6699cc;
+	border:1px solid #333;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	width:100%;
+	font-size:1.7em;
+	text-align:center;
+	text-shadow:#666 0.02em 0.02em 0.2em;
+	letter-spacing:0.2em
+}
+body > #menu {width:auto}
+#menu p {margin:0.5em 0 0.70em 0}
+#ver {font-size:0.6em}
+.menubox, .admin, .dialog {
+	background:#ccc url('img/boxShadow.gif') repeat-x;
+	border:1px solid #777;
+	margin:0.8em 0 0.8em 0.8em;
+	padding:0.3em;
+	width:23.5em
+}
+.submenu {
+	margin:0.2em 0 0.8em 0;
+	padding-top:0.1em;
+	width:100%;
+	height:1.7em;
+	text-align:center
+}
+.subitem {
+	background:#dbdbdb url('img/submenu.png') bottom repeat;
+	border:1px solid #777;
+	padding:0 0.5em;
+	font-weight:700;
+	font-size:1.1em;
+	font-variant:small-caps;
+	color:#323232
+}
+.subitem:hover { background:#ddd }
+.gamesbox {
+	margin-bottom:1em;
+	padding:0.5em 0.5em 0.5em 0;
+	height:33.5em;
+	overflow:auto
+}
+.gamesbox p {line-height:1em}
+a.gamelink {margin-left:0.75em}
+.note {color:#1964B5;}
+a.subitem:hover {color:#003366;text-shadow:#0066cc 0.1em 0.1em 0.1em}
+form {margin:0.3em 0;text-align:right;}
+input, select, textarea{
+	background:#B0C9E3 url('img/inputBack.png') repeat-x;
+	border:1px solid #97ADC4;
+	margin:0.4em 0.3em 0 0.4em;
+	padding-left:0.2em;
+	color:#323232;
+	width:10em;
+	height:1.4em
+}
+#upimage {font-size:0.8em;height:2em}
+select {padding:0}
+form p {text-align:right}
+textarea {
+	background:#B0C9E3;
+	width:95%;
+	height:23.5em
+}
+.butt, a.butt, .chat_butt {
+	background:#ccc url('img/blankB.png') repeat;
+	border:1px solid #666;
+	margin:0.6em 0 0.1em 0.3em;
+	padding:0;
+	color:#333;
+	height:1.7em;
+	width:8em;
+	font-size:1.1em;
+	font-weight:700;
+	font-variant:small-caps;
+	text-align:center
+}
+a.butt{padding:0.2em 0.4em}
+.butt:hover, a.butt:hover, .chat_butt:hover {border-color:#999;background:#aaa url('img/blankB-hover.png') bottom repeat}
+#adminpanel {
+	background:#b5b5b5;
+	border:2px solid #7c7c7c;
+	padding:0.5em;
+	position:absolute;
+	top:5em;
+	left:58em
+}
+.admin {
+	border:1px solid #666;
+	margin:0.6em 0.2em;
+	padding:0.5em 0.4em;
+	width:12em
+}
+#dialog_window, #logout {
+	background:#A3BFDE url('img/boxback.gif') repeat-x;
+	border:1px solid #777;
+	padding:0.4em;
+	color:#003366;
+	position:absolute;
+	top:35em;
+	left:0.8em;
+	z-index:999;
+	height:4.5em;
+	width:23.2em;
+	text-align:center;
+	font-size:1em;
+	font-weight:700
+}
+#container > #dialog_window {
+	top:auto;
+	bottom:1.5em
+}
+.attn, .error {color:#8C2721}
+a.menuHeadLink {
+	letter-spacing:0.1em;
+	color:#6699cc;
+	font-size:0.6em
+}
+a.menuHeadLink:hover {color:#C4DCF0}
+.dialog {margin:8em;height:12em}
+.dialog p {text-align:left;margin-left:0.8em}
+.options {
+	background:#dbdbdb url('img/boxShadow.gif') repeat-x;
+	border:1px solid #666;
+	margin:1.5em 0 0 1.5em;
+	padding:1em;
+	width:90%;
+	height:87%;
+	overflow:auto
+}
+.options p {height:3em}
+.options input {width:55%;height:1.75em}
+.options .butt {width:7em}
+#optpanel {
+	height:90%;
+	width:90%;
+}
+#optlist {
+	float:left;
+	width:45%
+}
+#help {
+	padding:1% 0 0 3%;
+	float:left
+}
+#help p {
+	width:24em;
+	text-align:left
+}
+.small_window{
+	margin-bottom:0.7em;
+	padding:0.5em 0.2em 0.2em 0.2em;
+	background:#d6d6d6;
+	border:1px #999 solid;
+	border-top:2px #999 solid
+}
+.small_window p {margin-left:0.4em}
+.left_column {margin-right:0.5em;width:9em;float:left;text-align:right}
+
+/*---------GAME.PHP CSS------------*/
+#chatter {
+	background:#dbdbdb url('img/boxShadow.gif') repeat-x;
+	border:1px solid #777;
+	padding:0.4em;
+	position:absolute;
+	top:32.3em;
+	left:55.6em;
+	width:17em
+}
+body > #chatter {top:33.3em}
+#chatIn {
+	background:#D4D5D6;
+	border:1px solid #666;
+	margin:0.4em 0.1em 0 0.2em;
+	color:#4E5666;
+	float:left;
+	width:12em
+}
+#board {
+	background:#b5b5b5;
+	border:2px solid #666;
+	padding:1.5em 1.5em;
+	position:absolute;
+	top:5em;
+	left:1.5em;
+	width:48.5em;
+	height:40em
+}
+#chat_panel {
+	background:#b5b5b5;
+	border:2px solid #666;
+	position:absolute;
+	top:5em;
+	left:54.5em;
+	width:20em;
+	height:43em
+}
+#chat {
+	border:1px solid #666;
+	position:absolute;
+	top:1.5em;
+	left:0.9em;
+	width:18em;
+	height:26.5em
+}
+.chat_butt {
+	width:3.5em;
+	height:2em;
+	font-size:1em;
+	margin:0.2em 0 0 0
+}		
+.pic {
+	border:1px solid #333;
+	margin-bottom:0.1em
+}
+#picframe_a {
+	color:#333;
+	position:absolute;
+	top:37em;
+	left:56em;
+	width:17.1em
+}
+#picframe_b, #picframe_c {
+	color:#333;
+	background:#dbdbdb url('img/boxShadow.gif') repeat-x;
+	border:4px double #666;
+	position:absolute;
+	top:25em;
+	left:55em;
+	width:16.8em;
+	text-align:center
+}
+.name {
+	float:left;
+	width:40%;
+	text-align:center
+}
+.name p {
+	font-weight:700;
+	line-height:1em
+}
+#logout {
+	border:2px solid #596D84;
+	margin:20% 0 0 27%;
+	padding:2em 1em;
+	position:static;
+	font-size:1.1em
+}

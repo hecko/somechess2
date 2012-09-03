@@ -1,0 +1,98 @@
+CREATE TABLE IF NOT EXISTS chat (
+  gameID int(10) NOT NULL default '0',
+  playerName varchar(250) NOT NULL default '',
+  num int(6) NOT NULL default '0',
+  `text` text NOT NULL,
+  INDEX game_chat (gameID)
+) TYPE=MyISAM;
+CREATE TABLE IF NOT EXISTS complete (
+  gameID int(10) NOT NULL default '0',
+  players varchar(250) NOT NULL default '',
+  result varchar(7) NOT NULL default '',
+  pgn text NOT NULL,
+  PRIMARY KEY (gameID)
+) TYPE=MyISAM;
+CREATE TABLE IF NOT EXISTS games (
+  gameID int(10) NOT NULL auto_increment,
+  gameDate varchar(14) NOT NULL default '',
+  whitePlayerID smallint(3) NOT NULL default '0',
+  blackPlayerID smallint(3) NOT NULL default '0',
+  nextMoveNum smallint(3) NOT NULL default '1',
+  nextTurnColor varchar(5) NOT NULL default 'white',
+  lastMove varchar(250) NOT NULL default '',
+  setup longtext NOT NULL,
+  wCastle varchar(250) NOT NULL default '',
+  bCastle varchar(250) NOT NULL default '',
+  winner char(3) NOT NULL default '0',
+  reqDraw tinyint(3) NOT NULL default '0',
+  reqUndo smallint(1) NOT NULL default '0',
+  INDEX won_games (winner),
+  PRIMARY KEY (gameID)
+) TYPE=MyISAM AUTO_INCREMENT=1;
+CREATE TABLE IF NOT EXISTS moves (
+  gameID int(10) NOT NULL default '0',
+  moveNum mediumint(3) NOT NULL default '0',
+  whiteMove varchar(6) NOT NULL default '',
+  blackMove varchar(6) NOT NULL default '',
+  INDEX game_moves (gameID)
+) TYPE=MyISAM;
+CREATE TABLE IF NOT EXISTS players (
+  id int(4) NOT NULL auto_increment,
+  `name` varchar(125) NOT NULL,
+  online int(1) NOT NULL default '0',
+  timeOnline decimal(12) NOT NULL,
+  pword varchar(250) NOT NULL,
+  power smallint(1) NOT NULL default '0',
+  pic varchar(250) NOT NULL,
+  realname varchar(250) NOT NULL,
+  location varchar(250) NOT NULL,
+  email varchar(250) NOT NULL,
+  invitedBy varchar(4) NOT NULL default '0',
+  addDate varchar(14) NOT NULL,
+  secQuestion varchar(90) NOT NULL,
+  secAnswer varchar(250) NOT NULL,
+  wins int(10) NOT NULL,
+  loses int(10) NOT NULL,
+  draws int(10) NOT NULL,
+  points int(10) NOT NULL,
+  PRIMARY KEY (id)
+) TYPE=MyISAM AUTO_INCREMENT=0;
+CREATE TABLE IF NOT EXISTS options (
+  id int(5) NOT NULL,
+  optionName varchar(150) NOT NULL default '',
+  optionValue varchar(250) NOT NULL default '',
+  varName varchar(150) NOT NULL default '',
+  type varchar(20) NOT NULL default '',
+  PRIMARY KEY  (id)
+) TYPE=MyISAM;
+INSERT INTO players (name,pword,power,pic,addDate,invitedBy) VALUES ('admin','21232f297a57a5a743894a0e4a801fc3','4','default.png',curdate(),0);
+INSERT INTO options VALUES (0, 'version', '2.0rc1', '', '');
+INSERT INTO options VALUES (5, 'host', '', 'host', 'text');
+INSERT INTO options VALUES (10, 'db_user_name', '', 'dbUser', 'text');
+INSERT INTO options VALUES (15, 'db_password', '', 'dbPass', 'password');
+INSERT INTO options VALUES (20, 'database', '', 'database', 'text');
+INSERT INTO options VALUES (25, 'db_prefix', '', 'dbPre', 'text');
+INSERT INTO options VALUES (30, 'domain', '', 'domain', 'text');
+INSERT INTO options VALUES (35, 'language', 'en', 'lang', 'text');
+INSERT INTO options VALUES (40, 'home_folder', '', 'homeFolder', 'text');
+INSERT INTO options VALUES (45, 'admin_email', '', 'adminEmail', 'text');
+INSERT INTO options VALUES (50, 'backup_email', '', 'backupEmail', 'checkbox');
+INSERT INTO options VALUES (55, 'backup_folder', '', 'backupFolder', 'checkbox');
+INSERT INTO options VALUES (60, 'show_update', '1', 'showUpdate', 'checkbox');
+INSERT INTO options VALUES (65, 'show_backup', '1', 'showBackup', 'checkbox');
+INSERT INTO options VALUES (70, 'board_refresh', '35', 'boardRefresh', 'text');
+INSERT INTO options VALUES (75, 'chat_refresh', '37', 'chatRefresh', 'text');
+INSERT INTO options VALUES (80, 'show_stats', '1', 'showStats', 'checkbox');
+INSERT INTO options VALUES (85, 'show_chat', '1', 'showChat', 'checkbox');
+INSERT INTO options VALUES (90, 'show_player_image', '1', 'showPlayerImg', 'checkbox');
+INSERT INTO options VALUES (95, 'player_image_dir', 'playerImg', 'playerImgDir', 'text');
+INSERT INTO options VALUES (100, 'alow_undo', '', 'allowUndo', 'checkbox');
+INSERT INTO options VALUES (105, 'email_move', '', 'emailMove', 'checkbox');
+INSERT INTO options VALUES (110, 'delete_chat', '1', 'deleteChat', 'checkbox');
+INSERT INTO options VALUES (115, 'delete_moves', '', 'deleteMoves', 'checkbox');
+INSERT INTO options VALUES (120, 'start_power', '0', 'startPower', 'text');
+INSERT INTO options VALUES (125, 'end_days', '30', 'endDays', 'text');
+INSERT INTO options VALUES (130, 'allow_register', '', 'allowRegister', 'checkbox');
+INSERT INTO options VALUES (135, 'verify_register', '', 'verifyReg', 'checkbox');
+
+--end;

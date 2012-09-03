@@ -1,0 +1,118 @@
+--added 2006.06.24 (v2.0a2);
+ALTER TABLE players DROP COLUMN games;
+ALTER TABLE players DROP COLUMN gamesDone;
+ALTER TABLE players ADD COLUMN power smallint(1) NOT NULL default '0';
+UPDATE players SET privileges="4" WHERE id="1";
+ALTER TABLE games MODIFY COLUMN gameDate varchar(12) NOT NULL default '';
+ALTER TABLE games MODIFY COLUMN lastMove varchar(250) NOT NULL default '';
+CREATE TABLE IF NOT EXISTS complete (
+  gameID int(10) NOT NULL,
+  players varchar(250) NOT NULL,
+  pgn text NOT NULL,
+  PRIMARY KEY  (gameID)
+) ENGINE=MyISAM;
+
+--added 2006.06.25 (v2.0a6);
+ALTER TABLE players ADD COLUMN pic varchar(250) NOT NULL default '';
+
+--added 2006.06.28 (v2.0a7);
+ALTER TABLE games ADD reqUndo smallint(1) NOT NULL;
+ALTER TABLE games ADD oldspot varchar(10) NOT NULL;
+ALTER TABLE players ADD invitedBy int(4) NOT NULL;
+ALTER TABLE players MODIFY COLUMN id int(4) NOT NULL auto_increment;
+
+--added 2006.07.06 (v2.0a8);
+ALTER TABLE games DROP COLUMN oldSpot;
+ALTER TABLE games MODIFY COLUMN gameDate varchar(14) NOT NULL;
+ALTER TABLE players ADD realname varchar(250) NOT NULL;
+ALTER TABLE players ADD location varchar(250) NOT NULL;
+ALTER TABLE players ADD email varchar(250) NOT NULL;
+
+--added 2006.08.20 (v2.0a9);
+ALTER TABLE players ADD addDate varchar(14) NOT NULL;
+
+--added 2006.09.29 (v2.0b1);
+ALTER TABLE players MODIFY invitedBy varchar(4) NOT NULL;
+
+--added 2006.10.02 (v2.0b2);
+CREATE TABLE IF NOT EXISTS options (
+  id int(5) NOT NULL,
+  optionName varchar(150) NOT NULL default '',
+  optionValue varchar(250) NOT NULL default '',
+  varName varchar(150) NOT NULL default '',
+  type varchar(20) NOT NULL default '',
+  PRIMARY KEY  (id)
+) TYPE=MyISAM;
+INSERT INTO options VALUES (0, 'version', '2.0b2', '', '');
+INSERT INTO options VALUES (1, 'host', '', 'host', 'text');
+INSERT INTO options VALUES (2, 'db_user_name', '', 'dbUser', 'text');
+INSERT INTO options VALUES (3, 'db_password', '', 'dbPass', 'password');
+INSERT INTO options VALUES (4, 'database', '', 'database', 'text');
+INSERT INTO options VALUES (5, 'domain', '', 'domain', 'text');
+INSERT INTO options VALUES (6, 'home_folder', '', 'homeFolder', 'text');
+INSERT INTO options VALUES (7, 'admin_email', '', 'adminEmail', 'text');
+INSERT INTO options VALUES (8, 'backup_email', '', 'backupEmail', 'checkbox');
+INSERT INTO options VALUES (9, 'backup_folder', 'backups', 'backupFolder', 'checkbox');
+INSERT INTO options VALUES (10, 'show_update', '1', 'showUpdate', 'checkbox');
+INSERT INTO options VALUES (11, 'show_backup', '1', 'showBackup', 'checkbox');
+INSERT INTO options VALUES (12, 'board_refresh', '25', 'boardRefresh', 'text');
+INSERT INTO options VALUES (13, 'chat_refresh', '37', 'chatRefresh', 'text');
+INSERT INTO options VALUES (14, 'show_stats', '1', 'showStats', 'checkbox');
+INSERT INTO options VALUES (15, 'show_chat', '1', 'showChat', 'checkbox');
+INSERT INTO options VALUES (16, 'show_player_image', '1', 'showPlayerImg', 'checkbox');
+INSERT INTO options VALUES (17, 'player_image_dir', 'playerImg', 'playerImgDir', 'text');
+INSERT INTO options VALUES (18, 'alow_undo', '', 'allowUndo', 'checkbox');
+INSERT INTO options VALUES (19, 'delete_chat', '1', 'deleteChat', 'checkbox');
+INSERT INTO options VALUES (20, 'delete_moves', '', 'deleteMoves', 'checkbox');
+INSERT INTO options VALUES (21, 'start_power', '0', 'startPower', 'text');
+INSERT INTO options VALUES (22, 'end_days', '30', 'endDays', 'text');
+INSERT INTO options VALUES (23, 'allow_register', '', 'allowRegister', 'checkbox');
+INSERT INTO options VALUES (24, 'verify_register', '', 'verifyReg', 'checkbox');
+INSERT INTO options VALUES (25, 'language', 'en', 'lang', 'text');
+
+--added 2001.01.02 (v2.0b4);
+INSERT INTO options VALUES (26, 'email_move', '', 'emailMove', 'checkbox');
+UPDATE options SET optionValue = '2.0b4' WHERE id = 0;
+
+--added 2001.02.07 (v2.0rc1);
+UPDATE options SET id=135 WHERE optionName='verify_register';
+UPDATE options SET id=130 WHERE optionName='allow_register';
+UPDATE options SET id=125 WHERE optionName='end_days';
+UPDATE options SET id=120 WHERE optionName='start_power';
+UPDATE options SET id=115 WHERE optionName='delete_moves';
+UPDATE options SET id=110 WHERE optionName='delete_chat';
+UPDATE options SET id=105 WHERE optionName='email_move';
+UPDATE options SET id=100 WHERE optionName='alow_undo';
+UPDATE options SET id=95 WHERE optionName='player_image_dir';
+UPDATE options SET id=90 WHERE optionName='show_player_image';
+UPDATE options SET id=85 WHERE optionName='show_chat';
+UPDATE options SET id=80 WHERE optionName='show_stats';
+UPDATE options SET id=75 WHERE optionName='chat_refresh';
+UPDATE options SET id=70 WHERE optionName='board_refresh';
+UPDATE options SET id=65 WHERE optionName='show_backup';
+UPDATE options SET id=60 WHERE optionName='show_update';
+UPDATE options SET id=55 WHERE optionName='backup_folder';
+UPDATE options SET id=50 WHERE optionName='backup_email';
+UPDATE options SET id=45 WHERE optionName='admin_email';
+UPDATE options SET id=40 WHERE optionName='home_folder';
+UPDATE options SET id=35 WHERE optionName='language';
+UPDATE options SET id=30 WHERE optionName='domain';
+UPDATE options SET id=20 WHERE optionName='database';
+UPDATE options SET id=15 WHERE optionName='db_password';
+UPDATE options SET id=10 WHERE optionName='db_user_name';
+UPDATE options SET id=5 WHERE optionName='host';
+ALTER TABLE players ADD secQuestion varchar(90) NOT NULL;
+ALTER TABLE players ADD secAnswer varchar(250) NOT NULL;
+ALTER TABLE players ADD wins int(10) NOT NULL;
+ALTER TABLE players ADD loses int(10) NOT NULL;
+ALTER TABLE players ADD draws int(10) NOT NULL;
+ALTER TABLE players ADD points decimal(10) NOT NULL;
+ALTER TABLE players MODIFY timeOnline decimal(12) NOT NULL;
+CREATE INDEX game_chat ON chat (gameID);
+CREATE INDEX game_moves ON moves (gameID);
+CREATE INDEX won_games ON games (winner);
+UPDATE players SET pic = 'default.png' WHERE pic = '';
+INSERT INTO options VALUES (25, 'db_prefix', '', 'dbPre', 'text');
+UPDATE options SET optionValue = '2.0rc1' WHERE id = 0;
+
+--end;

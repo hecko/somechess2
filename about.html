@@ -1,0 +1,95 @@
+<!--Some Chess, a PHP multi-player chess server.
+    Copyright (C) 2007 Jon Link-->
+<style type="text/css">
+	b {font-weight:700;margin-right:0.2em}
+	#container p {line-height:1.4em;margin-bottom:15px}
+	#infobox {
+		background:#dbdbdb url('img/boxShadow.gif') repeat-x;
+		border:1px solid #596D84;
+		margin:40px;
+		padding:25px;
+		height:460px;
+		overflow:auto;
+		font-size:1em
+	}
+	h2 {margin:0;font-size:1.2em;text-decoration:underline}
+	h3 {margin-left:0}
+	a.about:hover {text-decoration:none;color:#333}
+	a.about {text-decoration:underline}
+</style>
+<div id="infobox">
+<h2>Some Info</h2>
+
+<p><h3>Moving</h3> You move in Some Chess by clicking first on the square you want to 
+move from and then on the square you'd like to move to.</p>
+
+<p><h3>Castling</h3> The rule when castling is that you always move your king first.  In Some Chess 
+you move you king first and the rook will automaticaly go to the proper square.</p>
+
+<p><h3>Pawn Promotion</h3> Once you get your pawn to the other player's back line you will be given the 
+choice of what to promote the pawn to.</p>
+
+<p><h3>Stalemate</h3> Right now Some Chess doesn't know what a stalemate is.  The honor system is nice, 
+both players should agree to draw (which is what a stalemate is).</p>
+
+<p><h3>Resign</h3> If you want to give up click the "Resign" button.  The game will be end and 
+it will be counted as a loss for you.  Be careful because there is no way to undo this.</p>
+
+<p><h3>Draw</h3> You can suggest a draw at anytime by clicking on the "Draw" button.  Your opponent must accept, 
+otherwise the game will continue. To reject a draw offer all you have to do is make your next move.</p>
+
+<p><h3>Undo</h3> You can request an undo within thiry seconds of your last move.  Your opponent must accept, otherwise the game
+will continue. To reject an undo request all you have to do is make your next move. <i>(Note: this function must be enabled
+by an admin)</i></p>
+
+<p><h3>Ending a Game</h3> If a player hasn't made a move in a long time you will get the option to end the game. To end a 
+game click on the game in the menu, there will now be a "End" button in the options panel under the chess board. If there are 
+two or more complete moves in the game the win will go to the person who moved last, otherwise the game will simply be deleted. 
+Be careful because there is no way to undo this. Note, the default for the number of days before the "end" option appears
+is twenty, but the admin can set this number higher or lower.</p>
+
+<p><h3>Points</h3> Points are calculated using the standard system, the number of wins plus the number of draws divided by two 
+or Wins + (Draws/2) = Points.</p>
+
+<p><h3>Notation</h3> Some Chess uses <a href="http//en.wikipedia.org/wiki/Portable_Game_Notation" class="about">pgn</a> 
+notation, which you can export once the game is complete.  This is a nice way to save & play through 
+your games again in another program, etc.</p>
+
+<p><h3>Importing PGN</h3> To view a past game that is not in the database, played on Some Chess or elsewhere, all you need
+to do is paste the entire contents of the game into the field under the "Import Game" option.</p>
+
+<p><h3>Adding a User Image</h3> If this option is enabled you can add a custom image to your account. The option is located
+in the "Profile" window of the "Menu" page, just click "browse" and locate any image file.  Please note that the image will 
+be automatically resized to 85x85 pixels. The following image formats are accepted PNG, GIF, and JPG. <i>(Note: this function must be enabled
+by an admin)</i></p>
+
+<p><h3>Gonna Forget Your Password?</h3> In order to reset your password you'll need to put in a security question and answer, otherwise
+you'll have to ask an admin to do it manually.</p>
+
+<br /><br /><br />
+
+<h2>Some Trouble</h2>
+<p>If you find something that Some Chess is doing wrong, or find something that Some Chess should 
+be doing, <a href="mailtojon@astrodogpress.com">please let me know</a>.</p>
+
+<p>If Some Chess doesn't look nice to you, you're probably using MS Internet Explorer.  
+Stop doing that.  Seriously though, MS Internet Explorer has a lot of bugs  doesn't follow important standards 
+which makes it difficult to code for, I'll be making an effort to ensure that Some Chess is usuable in IE, but 
+it is a very low priority.  I am sorry, but any other modern browser (ex. firefox, safari, opera, camino)  
+works perfectly.</p>
+
+<p>Finally, I just want to say thanks for using this.  Thanks.</p>
+
+<br />
+
+<h2>Some More</h2>
+<p>Some Chess was written by Jon Link, for more info see <a href="http//somechess.org/web/" class="about">The Some Chess website</a></p>
+
+<br />
+
+<h2>Some Help</h2>
+<p>If you need help understanding the rules, special moves, concepts, notation (etc) a good basic resource is 
+<a href="http//en.wikipedia.org/wiki/Chess" class="about">Wikipedia</a> and 
+<a href="http//en.wikibooks.org/wiki/Chess" class="about">Wikibooks</a>.  
+Or take a book out of your local library, or search google for one of the thousands of websites dedicated to chess.</p>
+</div>

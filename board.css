@@ -1,0 +1,24 @@
+/*		Some Chess, a PHP multi-player chess server.	*/
+/*		Copyright (C) 2007 Jon Link						*/
+body {background:#b5b5b5;color:#333;font:0.8em Lucida Grande, Tahoma, sans-serif}
+p {margin:0.1em 0}
+a {float:left;margin:0;text-decoration:none}
+h2 {font-size:1em;margin:0 0 0.7em}
+h3 {font-size:0.9em;margin:0 0 0.5em}
+.boardbox {background:#9D7348;border:1px solid #664729;padding:0.8em 0.8em 2em 3em;color:#664729;position:absolute;top:0;left:0;height:33em;width:33em}
+body>.boardbox {height:30em;width:30em}
+.sq {width:3.45em;height:3.45em;border:0;padding:0;margin:0}
+.col_label {float:left;width:3.45em;text-align:center}
+.row_label {float:left;height:2em;margin-left:0.8em;margin-top:1em}
+.history {background:#dbdbdb url('img/boxShadow.gif') repeat-x;border:1px solid #666;position:absolute;top:0;left:35em;height:32.8em;width:13em}
+.in_history {padding:0.4em 0 0 0.4em;overflow:auto;height:35.8em;width:13.8em;font-size:0.9em}
+.movenum {float:left;width:1.8em;padding-right:0.4em;text-align:right}
+.move {float:left;width:5em;margin-right:0.6em}
+.opt {background:#dbdbdb url('img/boxShadow.gif') repeat-x;border:1px solid #666;width:33em;height:3em;padding:1.5em 0.5em 1em 2em;position:absolute;top:34em;left:0}
+body>.opt {width:31.3em}
+#info {background:#A3BFDE url('img/boxback.gif') repeat-x;border:1px solid #666;padding:0.3em;position:absolute;top:34em;left:35em;width:12.4em;height:5em;text-align:center}
+.badmove {color:#8C2721;z-index:99}
+.look, .moving {background:#2A5581;margin-bottom:0.4em;padding:0.3em 0.1em auto;color:#fff;font-size:1em;text-align:center}
+.moving {background:#8aacd0;padding:0.1em;border:1px #7da3cb solid;font-weight:700;color:#003366;opacity:0.7}
+.butt, a.butt {background:#ccc url('img/blankB.png');border:1px solid #666;color:#333;margin:0;padding:0.1em 0.5em;font-size:1.2em;font-weight:700;font-variant:small-caps}
+.butt:hover, a.butt:hover {border-color:#999;background:#aaa url('img/blankB-hover.png') bottom repeat}

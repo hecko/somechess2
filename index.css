@@ -1,0 +1,81 @@
+/*		Some Chess, a PHP multi-player chess server.	*/
+/*		Copyright (C) 2007 Jon Link 					*/
+body {
+	background:#bababa url('img/back.gif') repeat;
+	color:#444;
+	font-size:0.8em;
+	font-family:Lucida Grande, Tahoma, sans-serif
+}
+a {text-decoration:none;color:#555}
+a:hover {text-decoration:underline}
+h3 {
+	margin:0.4em;
+	font-size:1.1em;
+	font-weight:700
+}
+form, #regBox {
+	background:url('img/logo.png') no-repeat;
+	border:2px solid #666;
+	color:#333;
+	position:absolute;
+	top:8em;
+	left:18em;
+	height:275px;
+	width:275px;
+	z-index:10
+}
+input {
+	background:#B0C9E3 url('img/inputBack.png') repeat;
+	border:1px solid #97ADC4;
+	margin:0.4em 0.3em 0 0.4em;
+	padding-left:0.2em;
+	color:#323232;
+	width:11.5em
+}
+form div {margin:155px 15px 0 0}
+form div p {text-align:right;margin:0.2em}
+.butt {
+	background:#ccc url('img/blankB.png') repeat;
+	border:1px solid #666;
+	margin-right:5px;
+	color:#333;
+	height:1.7em;
+	width:6em;
+	float:right;
+	font-size:1.1em;
+	font-weight:700;
+	font-variant:small-caps;
+	text-align:center
+}
+.message, .error {
+	background:#dbdbdb url('img/boxShadow.gif') repeat-x;
+	border:3px double #666;
+	padding:3em;
+	width:15em;
+	position:absolute;
+	top:15em;
+	left:42em;
+	text-align:center
+}
+.error {color:#8C2721}
+#lostpass {margin:2.8em 0 0 1em;display:block;clear:both }
+#regBox {
+	background:#EAEAEA url('img/boxShadow.gif') repeat-x;
+	top:32em;
+	height:auto;
+	z-index:9
+}
+#regBox div {margin:1.1em 0.8em 3.5em 0}
+#ver {
+	background:#ccc;
+	color:#333;
+	position:absolute;
+	bottom:1.5em;
+	left:3em;
+	font-size:0.8em
+}
+img {
+	border:1px solid #666;
+	margin:10px;
+	float:left
+}

@@ -1,0 +1,1 @@
+<?php if($_SESSION['on'] !== true){die(include('index.php'));}else{if(!$do) $do	= 'menu';} ?>
