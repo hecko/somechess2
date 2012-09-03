@@ -1,0 +1,61 @@
+/***************************************************************************************
+** "Some Chess" some rights reserved 2007
+** Some Chess written by Jon Link
+** 
+** This program is free software; you can redistribute it and/or
+** modify it under the terms of the GNU General Public License
+** as published by the Free Software Foundation; either version 2
+** of the License, or (at your option) any later version.
+** 
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+** 
+** You should have received a copy of the GNU General Public License
+** along with this program; if not, write to the Free Software
+** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+** 
+** The images [p,r,n,q,k][d,l][d,l].png are GPL, 
+** from Wikimedia Commons, see gpl.txt
+**
+** a small portion of the code to display the chess board was taken from
+** phpChessBoard by Andreas Stieger http://www.wh-hms.uni-ulm.de/~tux/phpChessBoard/
+*****************************************************************************************/
+
+All code was written by Jon Link
+and fixed partly by Marcel Hecko
+
+*EXCEPT some parts of code found in display.php 
+those snippets are from phpChessBoard by Andreas Stieger 
+http://www.wh-hms.uni-ulm.de/~tux/phpChessBoard/
+
+*EXCEPT the user input validation function is a 
+modification of a function found on http://php.net
+
+*EXCEPT major portions of the backup script are taken from
+http://www.lunarforums.com/forum/index.php?topic=22118.0
+
+And a special thanks to the following people for to Some Chess
+either through code, donations, ideas, or bug reports:
+
+	- Miroslav Skultety (move notification email - adopted into code)
+	- David Fredrick
+	- Ashley Joyce
+	- Frederico Mottinha de Figueiredo
+	- Francis Perea
+	- Ray Shu
+	- Brad Flis
+	- Bryan Link
+	- Eric Baus
+	- Paul Fattaruso
+	- Stefan Klepser
+	- Braden
+	- and the many others who's name I was never given
+
+-------------------------------------
+	Translations
+-------------------------------------
+	Spanish					- Francis Perea
+	Brazilian Portuguese	- Frederico Mottinha de Figueiredo
+	French (replace me!)	- Jon Link

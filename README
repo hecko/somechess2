@@ -1,0 +1,81 @@
+READ ME: 2006.09.29 by Jon Link
+CONTACT: jon@astrodogpress.com
+
+/***************************************************************************************
+** "Some Chess" some rights reserved 2006
+** Some Chess written by Jon Link
+** 
+** This program is free software; you can redistribute it and/or
+** modify it under the terms of the GNU General Public License
+** as published by the Free Software Foundation; either version 2
+** of the License, or (at your option) any later version.
+** 
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+** 
+** You should have received a copy of the GNU General Public License
+** along with this program; if not, write to the Free Software
+** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+** 
+** The images [prnqk][dl][dl].png are GPL, from Wikimedia Commons, see gpl.txt
+**
+** a small portion of the code to display the chess board was taken from
+** phpChessBoard by Andreas Stieger http://www.wh-hms.uni-ulm.de/~tux/phpChessBoard/
+*****************************************************************************************/
+
+
+
+Some Chess is very easy to install, all you have to do is copy this folder & files 
+to your website and edit the config.php file.
+
+
+Requirements: PHP, MySQL
+
+INSTALLATION:
+1)  create your Some Chess database, somechess is the default in the config file, but you 
+	can change the name to anything you'd like.
+
+2) 	edit the example_config.php file with the proper info and rename the file config.php  
+	The file has all the info you should need. Note: you should delete everything that is 
+	commented out to make Some Chess run faster.
+
+3) 	copy the Some Chess folder to your server
+
+4) 	load the index page in your browser to auto-install the somechess tables. Alternatively 
+	(or if auto-installation fails), you can manually create the tables using the included 
+	"MYSQL" file. 
+	
+	Note: If you want a prefix on the tables AND are manually installing the tables you'll 
+	need to add the prefix to the tables yourself by editing the MYSQL file.
+
+5)	it is recommended that you delete these files after installation is complete files: 
+		¥ MYSQL
+		¥ MYSQL_UPDATE
+		¥ install.php
+
+6) 	login with username: admin password: admin (you should change this once you login)
+
+7) 	invite friends & play chess!
+
+
+OPTIONAL:
+
+8)	modify the admin options from the defaults as you'd like
+
+9)	to use the backup function with cron enter the following in cron (w/out quotes)
+	"php -q /YOUR/HOME/FOLDER/somechess/backup.php"
+
+
+
+*If auto installation fails it is probably because of permissions and you will need to create 
+the databases and tables manually if you are unfamiliar with this process I recommend going 
+to the MySQL website and reading about "SQL Queries."  Or using a program like phpMyAdmin 
+(if available).
+
+
+hints:
+http://www.phpmyadmin.net/
+http://dev.mysql.com/doc/refman/5.0/en/create-database.html
+http://dev.mysql.com/doc/refman/5.0/en/create-table.html
