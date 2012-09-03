@@ -57,6 +57,8 @@ INSTALLATION:
 
 6) 	login with username: admin password: admin (you should change this once you login)
 
+Do not forget to change domain name in MySQL database table `options`! This is important for sending emails!
+
 7) 	invite friends & play chess!
 
 

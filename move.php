@@ -12,10 +12,11 @@ function moveIt($locations,$oldSpot,$newSpot,$moveNum,$gameID,$canCastle,$player
 	if(!$message){
 		//--go through the old array and make the changes from the move in an new array
 		$playerColor	= ($playerColor == 'white')? 'l' : 'd';
-		$defColor		= ($playerColor == 'd')? 'l' : 'd';
+		$defColor	= ($playerColor == 'd')? 'l' : 'd';
 		$movingPiece	= $locations[$oldSpot];
 		//--check for illegal moves
-		if(strpos($lastMove,'#') !== false){
+		echo "Last move: ".$lastMove['move']."<br>";
+		if(strpos($lastMove['move'],'#') !== false){
 			$spRules['error']	= $movesStr[1];
 		}elseif(ord($newSpot{0}) < 97 || ord($newSpot{0}) > 104 || $newSpot{1} > 8 || $newSpot{1} < 1){
 			$spRules['error']	= $movesStr[2];

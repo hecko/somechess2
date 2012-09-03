@@ -9,9 +9,9 @@ include_once('constants.php');
 include_once('standard.php');
 $_SESSION['endDate']	= date(YmdHis, mktime(0, 0, 0, date(m), date(d)-$endDays, date(Y)));
 $do = ($_POST['do']) ? $_POST['do'] : $_GET['do'];
-$status					= validate($_GET['status']);
+$status	= validate($_GET['status']);
 $gameID = ($_POST['gameID']) ? $_POST['gameID'] : validate($_GET['gameID']);
-$vsName				 	= $_GET['vs'];
+$vsName	= $_GET['vs'];
 online();
 echo'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 <html>
@@ -21,32 +21,32 @@ echo'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.o
 	<link rel="stylesheet" type="text/css" href="somechess.css">
 	</head>
 	<body>	
-<div id="menu"><p>Some Chess <span id="ver">',version,'</span></p>',$menu,'</div>';
-if($status !== 'view'){
-	echo'<iframe src="board.php?gameID=',$gameID,'&amp;do=',$do,'&amp;vs=',$vsName,'" frameborder="0" allowtransparency="true" id="board">
-	<h3>'.$gameStr[0].'</h3>
-	</iframe>';
-}else{
-	if($_GET['move'])$move		= '&amp;move='.$_GET['move'];
-	if($_GET['player'])$player	= '&amp;player='.$_GET['player'];
-	echo'<iframe src="view.php?gameID=',$gameID,'&amp;status=',$status,$move,$player,'" frameborder="0" allowtransparency="true" id="board">
-	<h3>'.$gameStr[0].'</h3>
-	</iframe>';
-}
-if(!$status && $showChat == 1){
-	echo'<div id="chat_panel">
-	<iframe src="chat.php?gameID=',$gameID,'#end" frameborder="0" allowtransparency="true" id="chat">
-		<h3>'.$gameStr[1].'</h3>
-	</iframe>';
-	echo'</div>
-	<form action="game.php?do=display&amp;gameID=',$gameID,'&amp;vs=',$vsName,'" method="post" id="chatter">
-		<input type="text" name="chat" autocomplete="off" id="chatIn" />
-		<input type="hidden" name="gameID" value="',$gameID,'" />
-		<input type="hidden" name="act" value="chat" />
-		<input type="submit" value="Chat" class="chat_butt" />
-	</form>
-	</div>';
-}
+	<div id="menu"><p>Some Chess <span id="ver">',version,'</span></p>',$menu,'</div>';
+	if($status !== 'view'){
+		echo'<iframe src="board.php?gameID=',$gameID,'&amp;do=',$do,'&amp;vs=',$vsName,'" frameborder="0" allowtransparency="true" id="board">
+		<h3>'.$gameStr[0].'</h3>
+		</iframe>';
+	} else {
+		if($_GET['move'])$move		= '&amp;move='.$_GET['move'];
+		if($_GET['player'])$player	= '&amp;player='.$_GET['player'];
+		echo'<iframe src="view.php?gameID=',$gameID,'&amp;status=',$status,$move,$player,'" frameborder="0" allowtransparency="true" id="board">
+		<h3>'.$gameStr[0].'</h3>
+		</iframe>';
+	}
+	if(!$status && $showChat == 1){
+		echo'<div id="chat_panel">
+		<iframe src="chat.php?gameID=',$gameID,'#end" frameborder="0" allowtransparency="true" id="chat">
+			<h3>'.$gameStr[1].'</h3>
+		</iframe>';
+		echo'</div>
+		<form action="game.php?do=display&amp;gameID=',$gameID,'&amp;vs=',$vsName,'" method="post" id="chatter">
+			<input type="text" name="chat" autocomplete="off" id="chatIn" />
+			<input type="hidden" name="gameID" value="',$gameID,'" />
+			<input type="hidden" name="act" value="chat" />
+			<input type="submit" value="Chat" class="chat_butt" />
+		</form>
+		</div>';
+	}
 $act			= $_POST['act'];
 if($act == 'chat'){
 	$chat		= validate($_POST['chat']);

@@ -37,6 +37,7 @@ if($do == 'move'){
 	$canCastle			= ($_SESSION['id'] == $bID)? unserialize(mysql_result($result,0,'bCastle')):unserialize(mysql_result($result,0,'wCastle'));
 	$nextMoveNum		= mysql_result($result,0,'nextMoveNum');
 	$lastMove			= unserialize(mysql_result($result,0,'lastMove'));
+	print_r($lastMove);
 	$theMove			= moveIt($locations,$oldSpot,$newSpot,$nextMoveNum,$gameID,$canCastle,$playerColor,$lastMove,$promote,$lang,$oppID,$emailMove);
 	if($theMove !== 'redo') $locations = $theMove;
 	$result				= mysql_query($query)or die('<div class="error">'.errorDBStr.' (bg-2)</div>'); //refresh the result with the new info after moving
