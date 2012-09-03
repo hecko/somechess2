@@ -170,11 +170,13 @@ function moveIt($locations,$oldSpot,$newSpot,$moveNum,$gameID,$canCastle,$player
 				}
 				if($emailMove){
 					//--email move
-					include('config.php');				
-					$queryemail		= 'SELECT '.dbPre.'email FROM players WHERE id="'.$oppID.'" LIMIT 1';
-					$resultemail	= mysql_query($queryemail)or die('<div class="error">'.errorDBStr.' (mv-3)</div>');
-					$addr			= mysql_result($resultemail,0,'email');
-					$message		= $emailStr[1].$_SESSION['vs'.$gameID].$emailStr[2].$_SESSION['name'].$emailStr[3].$moveNote.$emailStr[4].$gameID.')';
+					include('config.php');
+					$queryemail = 'SELECT '.dbPre.'email FROM players WHERE id="'.$oppID.'" LIMIT 1';
+					$resultemail = mysql_query($queryemail)or die('<div class="error">'.errorDBStr.' (mv-3)</div>');
+					$addr = mysql_result($resultemail,0,'email');
+					$message = $emailStr[1].$_SESSION['vs'.$gameID].$emailStr[2].$_SESSION['name'].
+						$emailStr[3].$moveNote.$emailStr[4].$gameID.')'.
+						"\nChess server link: http://".$_SERVER['SERVER_NAME']."/somechess2/\n";
 					$headers  	= 'MIME-Version: 1.0
 Content-type: text/plain; charset=iso-8859-1
 Date: '.date("r").'

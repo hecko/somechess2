@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS options (
   PRIMARY KEY  (id)
 ) TYPE=MyISAM;
 INSERT INTO players (name,pword,power,pic,addDate,invitedBy) VALUES ('admin','21232f297a57a5a743894a0e4a801fc3','4','default.png',curdate(),0);
-INSERT INTO options VALUES (0, 'version', '2.0rc1', '', '');
+INSERT INTO options VALUES (0, 'version', '2.0b6', '', '');
 INSERT INTO options VALUES (5, 'host', '', 'host', 'text');
 INSERT INTO options VALUES (10, 'db_user_name', '', 'dbUser', 'text');
 INSERT INTO options VALUES (15, 'db_password', '', 'dbPass', 'password');
@@ -87,7 +87,7 @@ INSERT INTO options VALUES (85, 'show_chat', '1', 'showChat', 'checkbox');
 INSERT INTO options VALUES (90, 'show_player_image', '1', 'showPlayerImg', 'checkbox');
 INSERT INTO options VALUES (95, 'player_image_dir', 'playerImg', 'playerImgDir', 'text');
 INSERT INTO options VALUES (100, 'alow_undo', '', 'allowUndo', 'checkbox');
-INSERT INTO options VALUES (105, 'email_move', '', 'emailMove', 'checkbox');
+INSERT INTO options VALUES (105, 'email_move', '1', 'emailMove', 'checkbox');
 INSERT INTO options VALUES (110, 'delete_chat', '1', 'deleteChat', 'checkbox');
 INSERT INTO options VALUES (115, 'delete_moves', '', 'deleteMoves', 'checkbox');
 INSERT INTO options VALUES (120, 'start_power', '0', 'startPower', 'text');
