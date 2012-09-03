@@ -53,7 +53,7 @@ echo'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.
 <body>
 <div id="menu">
 ';
-echo'<p>Some Chess <span id="ver">',version,'</span></p>
+echo'<p>Some Chess <span id="ver">',shortVer,'</span></p>
 ';
 if($do != 'logout') echo $menu;
 echo'
@@ -426,7 +426,7 @@ if($power > 3 && ($do =='menu' || !$do)){
 mysql_close();
 ?>
 <div style="position:absolute;top:1.5em;left:0.5em;color:#cc3300;font-weight:700">
-	<a href="http://astrodogpress.com" target="_NEW" style="color:#cc3300">please report any bugs</a>
+	<a href="mailto:maco@blava.net" style="color:#cc3300">please report any bugs to maco@blava.net</a>
 </div>
 </body>
 </html>
