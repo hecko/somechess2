@@ -4,14 +4,14 @@ CREATE TABLE IF NOT EXISTS chat (
   num int(6) NOT NULL default '0',
   `text` text NOT NULL,
   INDEX game_chat (gameID)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 CREATE TABLE IF NOT EXISTS complete (
   gameID int(10) NOT NULL default '0',
   players varchar(250) NOT NULL default '',
   result varchar(7) NOT NULL default '',
   pgn text NOT NULL,
   PRIMARY KEY (gameID)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 CREATE TABLE IF NOT EXISTS games (
   gameID int(10) NOT NULL auto_increment,
   gameDate varchar(14) NOT NULL default '',
@@ -28,14 +28,14 @@ CREATE TABLE IF NOT EXISTS games (
   reqUndo smallint(1) NOT NULL default '0',
   INDEX won_games (winner),
   PRIMARY KEY (gameID)
-) TYPE=MyISAM AUTO_INCREMENT=1;
+) ENGINE=MyISAM AUTO_INCREMENT=1;
 CREATE TABLE IF NOT EXISTS moves (
   gameID int(10) NOT NULL default '0',
   moveNum mediumint(3) NOT NULL default '0',
   whiteMove varchar(6) NOT NULL default '',
   blackMove varchar(6) NOT NULL default '',
   INDEX game_moves (gameID)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 CREATE TABLE IF NOT EXISTS players (
   id int(4) NOT NULL auto_increment,
   `name` varchar(125) NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS players (
   draws int(10) NOT NULL,
   points int(10) NOT NULL,
   PRIMARY KEY (id)
-) TYPE=MyISAM AUTO_INCREMENT=0;
+) ENGINE=MyISAM AUTO_INCREMENT=0;
 CREATE TABLE IF NOT EXISTS options (
   id int(5) NOT NULL,
   optionName varchar(150) NOT NULL default '',
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS options (
   varName varchar(150) NOT NULL default '',
   type varchar(20) NOT NULL default '',
   PRIMARY KEY  (id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 INSERT INTO players (name,pword,power,pic,addDate,invitedBy) VALUES ('admin','21232f297a57a5a743894a0e4a801fc3','4','default.png',curdate(),0);
 INSERT INTO options VALUES (0, 'version', '2.0b6', '', '');
 INSERT INTO options VALUES (5, 'host', '', 'host', 'text');
@@ -95,4 +95,3 @@ INSERT INTO options VALUES (125, 'end_days', '30', 'endDays', 'text');
 INSERT INTO options VALUES (130, 'allow_register', '', 'allowRegister', 'checkbox');
 INSERT INTO options VALUES (135, 'verify_register', '', 'verifyReg', 'checkbox');
 
---end;

@@ -131,7 +131,7 @@ $menuFuncStr[21]	= 'Lo siento, ha habido un error inesperado. Por favor vuelva a
 $menuFuncStr[22]	= '
 	Usuario:	';
 $menuFuncStr[23]	= 'Passwords must be 6 to 15 characters long';	//requires translation
-$menuFuncStr[24]	= 'Username must be 5 to 20 characters long';	//requires translation
+$menuFuncStr[24]	= 'Username must be 4 to 20 characters long';	//requires translation
 $menuFuncStr[25]	= 'Security Questions can not be more than 90 characters long';	//requires translation
 $menuFuncStr[26]	= 'Password and Username can not be the same';	//requires translation
 
