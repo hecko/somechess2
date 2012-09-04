@@ -122,7 +122,7 @@ if($allowRegister){
 }
 echo'
 <div id="ver">
-	 <a href="http://somechess.org/web/" target=new>Some Chess</a> Version '.version.'
+	 <a href="https://github.com/hecko/somechess2" target=new>Some Chess Homepage</a>
 </div>
 ';
 echo $error;
