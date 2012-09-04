@@ -138,7 +138,7 @@ $menuFuncStr[21]	= 'Sorry, there was an unexpected error please try again';
 $menuFuncStr[22]	= '
 	Username:	';
 $menuFuncStr[23]	= 'Passwords must be 6 to 15 characters long';	//NEW TO 2.0b5
-$menuFuncStr[24]	= 'Username must be 5 to 20 characters long';	//NEW TO 2.0b5
+$menuFuncStr[24]	= 'Username must be 4 to 20 characters long';	//NEW TO 2.0b5
 $menuFuncStr[25]	= 'Security Questions can not be more than 90 characters long';	//NEW TO 2.0b5
 $menuFuncStr[26]	= 'Password and Username can not be the same';	//NEW TO 2.0b5
 

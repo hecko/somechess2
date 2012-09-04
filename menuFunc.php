@@ -7,7 +7,7 @@ function chngInfo($username,$pass1,$pass2,$realname,$location,$email,$secQuestio
 	$namedPlayers		= mysql_num_rows($resultPlayers);	
 	if($secQuestion && strlen($secQuestion) > 90){ 
 		return '<div class="error">'.$menuFuncStr[25].'</div>';
-	}elseif(strlen($username)>20 || strlen($username)<5){
+	}elseif(strlen($username)>20 || strlen($username)<4){
 		return '<div class="error">'.$menuFuncStr[24].'</div>';
 	}elseif($namedPlayers>0){
 		return '<div class="error">'.$menuFuncStr[8].'</div>';	
@@ -52,6 +52,8 @@ function invite($name,$email,$friend,$domain,$homeFolder,$startPower,$menuFuncSt
 	$invDate			= date("Y-m-d");
 	if(!$name || !$email){
 		return '<div class="error">'.$menuFuncStr[6].'</div>';
+	}elseif(strlen($name)>20 || strlen($name)<4){
+		return '<div class="error">'.$menuFuncStr[24].'</div>';
 	}elseif(strpos($email,'@') === false || strpos($email,'.') === false){
 		return '<div class="error">'.$menuFuncStr[7].'</div>';
 	}elseif($namedPlayers>0){
