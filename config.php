@@ -1,4 +1,8 @@
 <?php
+// used to construct mail domain and web URL
+$domain     = 'localhost';
+$homeFolder = '/somechess2/';
+// DB config
 $host		= 'localhost'; 		// host name of database (usually it's localhost)
 $dbUser		= 'somechess';		// username for DB
 $dbPass		= 'parajko';		// password for DB
