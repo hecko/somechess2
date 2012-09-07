@@ -51,7 +51,7 @@ echo'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.
 	</style>
 </head>
 <body>
-<div id="menu"><p>Some Chess <span id="ver">',version,'</span></p>',$menu,'</div>
+<div id="menu"><p>Some Chess</p>',$menu,'</div>
 <div id="container" style="width:67em">';
 
 online();

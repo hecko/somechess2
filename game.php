@@ -20,8 +20,8 @@ echo'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.o
 	<title>Some Chess</title>
 	<link rel="stylesheet" type="text/css" href="somechess.css">
 	</head>
-	<body>	
-	<div id="menu"><p>Some Chess <span id="ver">',version,'</span></p>',$menu,'</div>';
+	<body>
+	<div id="menu"><p>Some Chess</p>',$menu,'</div>';
 	if($status !== 'view'){
 		echo'<iframe src="board.php?gameID=',$gameID,'&amp;do=',$do,'&amp;vs=',$vsName,'" frameborder="0" allowtransparency="true" id="board">
 		<h3>'.$gameStr[0].'</h3>

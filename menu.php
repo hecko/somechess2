@@ -53,7 +53,7 @@ echo'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.
 <body>
 <div id="menu">
 ';
-echo'<p>Some Chess <span id="ver">',shortVer,'</span></p>
+echo'<p>Some Chess</p>
 ';
 if($do != 'logout') echo $menu;
 echo'
