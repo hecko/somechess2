@@ -20,7 +20,7 @@ function login($userName,$password,$loginStr){
 			$name 		= mysql_result($resultPlayers,0,'name');
 			$power 		= mysql_result($resultPlayers,0,'power');
 			$pic 		= mysql_result($resultPlayers,0,'pic');
-			session_register('on'); 
+			//session_register('on'); 
 			session_start();
 			$_SESSION['on'] 	= true;	
 			$_SESSION['id'] 	= $id;	

@@ -12,6 +12,6 @@ $lang		= 'en';			// language Some Chess uses
 $firstrun	= false;		// DO NOT EDIT THIS LINE
 $playerImgDir	= 'playerImg';		//player images directory
 $emailMove	= true;
-@mysql_connect($host,$dbUser,$dbPass);
-@mysql_select_db($database) or die('ERROR: can\'t connect to database'.mysql_error());
+mysql_connect($host,$dbUser,$dbPass);
+mysql_select_db($database) or die('<br>ERROR: can\'t connect to database<br>'.mysql_error());
 ?>

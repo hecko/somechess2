@@ -54,7 +54,7 @@ function average($field,$stats,$numPlayer){
 	return $average;
 }
 function formatDate($date){
-	$date	= ereg_replace('[^0-9]','',$date);
+	$date	= preg_replace('[^0-9]','',$date);
 	return substr($date,0,4).'.'.substr($date,4,2).'.'.substr($date,6,2);
 }
 ?>

@@ -289,7 +289,7 @@ echo'</div>
 		$resultGames		= mysql_query($queryGames)or die('<div class="error">'.errorDBStr.' (mg-1)</div>');	
 		$gamesNum			= mysql_num_rows($resultGames);
 		if($gamesNum == 0) echo'<p>( None )</p>';
-		$tooOld 			= date(YmdHis, mktime(0, 0, 0, date(m), date(d)-$endDays, date(Y)));
+		$tooOld 			= date('YmdHis', mktime(0, 0, 0, date('m'), date('d')-$endDays, date('Y')));
 		for($i=0;$i<$gamesNum;++$i){
 			unset($turns,$end);
 			$gameID			= mysql_result($resultGames,$i,'gameID');
