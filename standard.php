@@ -7,9 +7,6 @@ function validate($value){
 }
 
 function online(){
-	$now = date('YmdHi');
-	$queryOnline = 'UPDATE '.dbPre.'players SET online="1", timeOnline="'.$now.'" WHERE id="'.$_SESSION['id'].'" LIMIT 1';
-	mysql_query($queryOnline)or die('<div class="error">'.errorDBStr.' (ut-1)</div>');
 	$queryOnline = 'UPDATE '.dbPre.'players SET lastOnline="'.time().'" WHERE id="'.$_SESSION['id'].'" LIMIT 1';
 	mysql_query($queryOnline)or die('<div class="error">'.errorDBStr.' (ut-1)</div>');
 }

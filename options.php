@@ -1,8 +1,9 @@
 <?PHP
-//		Some Chess, a PHP multi-player chess server.
-//		Copyright (C) 2007 Jon Link
 require_once('loginon.php');
-if($_SESSION['power']>3 && is_writable('config.php')){
+if($_SESSION['power']>3){
+	if (!is_writable('config.php')) {
+		echo '<div class="error">'.$adminStr[19].'</div>';
+	}
 	include_once('languages/'.$lang.'_options.php');
 	$optQuery	= 'SELECT * FROM '.dbPre.'options WHERE id>0 ORDER BY id';
 	$optResult 	= mysql_query($optQuery)or die('<div class="error">'.errorDBStr.' (op-1)</div>');
@@ -36,7 +37,5 @@ if($_SESSION['power']>3 && is_writable('config.php')){
 		<input type="submit" value="'.$opStr['a'].'" class="butt" />
 	</form>
 	';
-}elseif(!is_writable('config.php')){
-	echo '<div class="error">'.$adminStr[19].'</div>';
 }
 ?>
