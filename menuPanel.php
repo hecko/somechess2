@@ -46,7 +46,7 @@
 	//--SHOW PLAYERS THAT ARE ONLINE
 		$onNum = 0;
 		for($i=0;$i<$numVS;++$i){
-			if(mysql_result($resultVS,$i,'online') == 1 && (mysql_result($resultVS,$i,'timeOnline') + 5)>=$now){
+			if ((mysql_result($resultVS,$i,'lastOnline') + 900) >= time()) {
 				$onliners .= '<a href="players.php?statID='.mysql_result($resultVS,$i,'id').'">'.mysql_result($resultVS,$i,'name').'</a> &bull; ';
 				++$onNum;
 			}

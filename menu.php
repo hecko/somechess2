@@ -239,16 +239,13 @@ if($do == 'logout'){
 	unset($do,$firstrun);
 }elseif(($do == 'options' && $_SESSION['power']>3) || ($firstrun && $_SESSION['power']>3)){
 	include('options.php');
-}elseif($do == 'verCheck' && $_SESSION['power']>3){
-	$message = versionCheck($adminStr);
-	unset($do);
 }elseif($do == 'backup' && $_SESSION['power']>3){
 	include('backup.php');
 	$message = '<div class="message">Backup script has run</div>';
 	unset($do);
 }
 if(($do =='menu' || !$do ) && !$firstrun){ 
-online(); //--MAKE THE PERSON ACTIVELY ONLINE
+online(); //update persons online status
 //--GET USER'S INFO
 $queryPlayer		= 'SELECT * FROM '.dbPre.'players WHERE id="'.$_SESSION['id'].'" LIMIT 1';
 $resultPlayer		= mysql_query($queryPlayer)or die('<div class="error">'.errorDBStr.' (mp-1)</div>');	

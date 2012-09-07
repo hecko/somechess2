@@ -95,16 +95,6 @@ function chgPower($playerID,$newPower,$adminStr){
 	mysql_query($queryPower)or die('<div class=error>'.errorDBStr.' (cp-1)</div>');
 	return $adminStr[5];
 }
-function versionCheck($adminStr){
-	$contents	= file_get_contents('http://somechess.org/web/version.rss');
-	$newVer		= preg_replace('/[\W\S\.]*<description>/','',$contents);
-	$newVer		= preg_replace('/<\/description>[\W\S\.]*/','',$newVer);	
-	if(ver2num(shortVer) < ver2num($newVer)){
-		return $adminStr[12].': <a href="http://somechess.org/web/" target="_NEW">'.$newVer.' ('.$adminStr[13].')</a>';
-	}else{
-		return $adminStr[14].': '.shortVer;
-	}
-}
 function ver2num($ver){
 	if(strpos($ver,'a')){
 		$ver	= preg_replace('/[a-z]*/','',$ver);

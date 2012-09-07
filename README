@@ -1,9 +1,14 @@
 READ ME: 2006.09.29 by Jon Link
 CONTACT: jon@astrodogpress.com
 
+UPDATED:
+2012 by Marcel Hecko
+maco@blava.net
+
 /***************************************************************************************
 ** "Some Chess" some rights reserved 2006
 ** Some Chess written by Jon Link
+** Further hacked by Marcel Hecko (2012)
 ** 
 ** This program is free software; you can redistribute it and/or
 ** modify it under the terms of the GNU General Public License
@@ -26,12 +31,11 @@ CONTACT: jon@astrodogpress.com
 *****************************************************************************************/
 
 
-
 Some Chess is very easy to install, all you have to do is copy this folder & files 
 to your website and edit the config.php file.
 
 
-Requirements: PHP, MySQL
+Requirements: PHP (tested with PHP 5.4), MySQL
 
 INSTALLATION:
 1)  create your Some Chess database, somechess is the default in the config file, but you 

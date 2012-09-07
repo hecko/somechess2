@@ -12,7 +12,7 @@ $do = ($_POST['do']) ? $_POST['do'] : $_GET['do'];
 $status	= validate($_GET['status']);
 $gameID = ($_POST['gameID']) ? $_POST['gameID'] : validate($_GET['gameID']);
 $vsName	= $_GET['vs'];
-online();
+online(); //update persons online status
 echo'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 <html>
 <head>

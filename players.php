@@ -58,7 +58,7 @@ online();
 include_once('playersFunc.php');
 if($do =='players' || !$do){ 
 //--display stats
-	$order	= array('wins'=>'wins','loses'=>'loses','draws'=>'draws','points'=>'points','online'=>'timeOnline');
+	$order	= array('wins'=>'wins','loses'=>'loses','draws'=>'draws','points'=>'points','online'=>'lastOnline');
 	$ordering			= (key_exists($ordering,$order))? $order[$ordering].' DESC' : 'name';
 
 	$queryPlayer		= 'SELECT * FROM '.dbPre.'players WHERE invitedBy > -2 ORDER BY '.$ordering;	
@@ -123,7 +123,7 @@ if($do =='players' || !$do){
 		$stats[$i]['location'] 	= mysql_result($resultPlayer,$i,'location');
 		$stats[$i]['addDate'] 	= formatDate(mysql_result($resultPlayer,$i,'addDate'));
 		$stats[$i]['invitedBy'] = mysql_result($resultPlayer,$i,'invitedBy');
-		$stats[$i]['lastOnline'] = formatDate(mysql_result($resultPlayer,$i,'timeOnline'));
+		$stats[$i]['lastOnline'] = date("d M y H:i",mysql_result($resultPlayer,$i,'lastOnline'));
 		$stats[$i]['wins'] 		= mysql_result($resultPlayer,$i,'wins');
 		$stats[$i]['loses'] 	= mysql_result($resultPlayer,$i,'loses');
 		$stats[$i]['draws'] 	= mysql_result($resultPlayer,$i,'draws');
