@@ -66,11 +66,11 @@ Content-type: text/plain; charset=iso-8859-1
 X-Priority: 3
 X-Mailer: Some Chess
 ';
-		$headers 	.= 'From: "Some Chess" <somechess@'.$domain.'>';
+		$headers 	.= 'From: "Some Chess" <'.$emailAddress.'>';
 		$message	= $menuFuncStr[10].$friend.$menuFuncStr[11].$domain.$homeFolder.$menuFuncStr[22].$name.$menuFuncStr[12].$rPassword.$menuFuncStr[13];
 		$message = wordwrap($message,100);
 		mail($email,$subject,$message,$headers);
-		$queryInvite 	= 'INSERT INTO '.dbPre.'players (name,pword,power,invitedBy,addDate,pic) VALUES ("'.$name.'","'.$password.'","'.$startPower.'","'.$_SESSION['id'].'","'.time().'","default.png")';
+		$queryInvite 	= 'INSERT INTO '.dbPre.'players (name,pword,power,email,invitedBy,addDate,pic) VALUES ("'.$name.'","'.$password.'","'.$startPower.'","'.$email.'","'.$_SESSION['id'].'","'.time().'","default.png")';
 		mysql_query($queryInvite)or die('<div class=error>'.errorDBStr.' (iv-2)</div>');
 		return $menuFuncStr[14];
 	}

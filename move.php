@@ -176,14 +176,14 @@ function moveIt($locations,$oldSpot,$newSpot,$moveNum,$gameID,$canCastle,$player
 					$addr = mysql_result($resultemail,0,'email');
 					$message = $emailStr[1].$_SESSION['vs'.$gameID].$emailStr[2].$_SESSION['name'].
 						$emailStr[3].$moveNote.$emailStr[4].$gameID.')'.
-						"\nChess server link: http://".$_SERVER['SERVER_NAME']."/somechess2/\n";
+						"\nChess link: http://".$domain.$homeFolder"\n";
 					$headers  	= 'MIME-Version: 1.0
 Content-type: text/plain; charset=iso-8859-1
 Date: '.date("r").'
 X-Priority: 3
 X-Mailer: Some Chess
 ';
-					$headers 	.= 'From: "Some Chess" <somechess@'.$domain.'>';
+					$headers 	.= 'From: "Some Chess" <'.$emailAddress.'>';
 					if($addr) mail($addr,$emailStr[0],$message,$headers);
 				}
 				return $newLocations;
