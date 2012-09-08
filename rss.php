@@ -10,7 +10,7 @@ require_once('config.php');
 include_once('standard.php');
 include_once('constants.php');
 echo'<channel>
-<title id="main">Some Chess</title>
+<title id="main">SomeChess</title>
 <link>http://'.$domain.$homeFolder.'</link>
 <description></description>
 <lastBuildDate>',substr(date(r),0,-5),'GMT</lastBuildDate>
@@ -54,17 +54,22 @@ if($num>0){
 		$last			= unserialize(mysql_result($resultGames,$i,'lastMove'));
 		$lastMove		= $last['move'];
 		$draw			= mysql_result($resultGames,$i,'reqDraw');	
-		if($draw)$draw 	= ' (a draw has bee proposed)'; else $draw = '';
-		if(mysql_result($resultGames,$i,'gameDate')<$tooOld) $hide = true;
+		if($draw)$draw 	= ' (a draw has been proposed)'; else $draw = '';
+		//if(mysql_result($resultGames,$i,'gameDate')<$tooOld) $hide = true;
 		if($bID == $id){ $playerColor = 'black'; $opp = $oppName[$wID]; }else{ $playerColor = 'white'; $opp = $oppName[$bID]; }
 	
-		if($nTC == $playerColor && $hide != true){
+		if($nTC == $playerColor) {
+			$turn = 'your';
+		} else {
+			$turn = $opp;
+		}
+		if ($hide != true) {
 		++$gameCount; 
 echo'
 <item>
-<title>Move for Game#',$gameID,' (',$playerColor,') Vs. ',$opp,'</title>
+<title>Move for Game#',$gameID,': '.$name.' (',$playerColor,') VS ',$opp,'</title>
 <pubDate>',substr(date(r),0,-5),'GMT</pubDate>
-<description>It is your turn, the latest move was: ',$lastMove,$draw,'</description>
+<description>It is '.$turn.'\'s turn, the latest move was: ',$lastMove,$draw,'</description>
 <link>http://'.$domain.$homeFolder.'</link>
 </item>
 ';

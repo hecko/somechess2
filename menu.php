@@ -47,13 +47,13 @@ echo'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Some Chess</title>
+	<title>SomeChess</title>
 	<link rel="stylesheet" type="text/css" href="somechess.css" />
 </head>
 <body>
 <div id="menu">
 ';
-echo'<p>Some Chess</p>
+echo'<p>SomeChess</p>
 ';
 if($do != 'logout') echo $menu;
 echo'

@@ -17,11 +17,11 @@ echo'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.o
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<title>Some Chess</title>
+	<title>SomeChess</title>
 	<link rel="stylesheet" type="text/css" href="somechess.css">
 	</head>
 	<body>
-	<div id="menu"><p>Some Chess</p>',$menu,'</div>';
+	<div id="menu"><p>SomeChess</p>',$menu,'</div>';
 	if($status !== 'view'){
 		echo'<iframe src="board.php?gameID=',$gameID,'&amp;do=',$do,'&amp;vs=',$vsName,'" frameborder="0" allowtransparency="true" id="board">
 		<h3>'.$gameStr[0].'</h3>
