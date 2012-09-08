@@ -115,8 +115,8 @@ $menuFuncStr[6]	= 'Please fill in both fields, email addresses are <b>not</b> st
 $menuFuncStr[7]	= 'This doesn\'t appear to be a valid email address, please try again<br /> email addresses are <b>not</b> stored in anyway';
 $menuFuncStr[8]	= 'Sorry, that name is already taken please try a different name';
 $menuFuncStr[9]	= "You've been invited to play Some Chess";
-$menuFuncStr[10]	= 'A friend has invited you to play Some Chess. His or her name on Some Chess is ';
-$menuFuncStr[11]	= '. Some Chess is a new internet chess program that you can play in real time or over a prolonged period (like correspondence chess). Some Chess does not require javascript so it works on pretty much any computer with an internet connection. Your account has already been created, you can use the info below to log in at:
+$menuFuncStr[10]	= 'Your friend ';
+$menuFuncStr[11]	= ' has invited you to play Some Chess. Some Chess is a new internet chess program that you can play in real time or over a prolonged period (like correspondence chess). Some Chess does not require javascript so it works on pretty much any computer with an internet connection. Your account has already been created, you can use the info below to log in at:
 				
 	http://';
 $menuFuncStr[12]	= '
@@ -124,9 +124,9 @@ $menuFuncStr[12]	= '
 $menuFuncStr[13]	= "
 	(you can change these once you login)\n\r\n\r
 If you have any questions please take a minute once you log in to read the about page (located in the top menu).\n\r\n\r\n\r\n\r
-Best wishes,
-Some Chess Automaton\n\r\n\r
-ps- in case you're wondering, your email address is immediately discarded, so unless someone invites you again you'll never hear from Some Chess again";
+Best wishes.
+\n\r\n\r
+ps- in case you're wondering, unless someone invites you again you'll never hear from Some Chess again";
 $menuFuncStr[14]	= 'Your friend has been invited';
 $menuFuncStr[15]	= 'You need to choose a file';
 $menuFuncStr[16]	= 'The file appears to be empty size:';

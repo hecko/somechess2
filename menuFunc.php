@@ -61,12 +61,7 @@ function invite($name,$email,$friend,$domain,$homeFolder,$startPower,$menuFuncSt
 		$rPassword	= randomPassword('tkmF#w8EcRzW6GvOPfcgNsQD1hArU4Y$Lx2a7Mu0jT3B!q5SyXJCheInpKZbHV9'); 
 		$password	= md5($rPassword); 	
 		$subject	= $menuFuncStr[9];
-		$headers  	= 'MIME-Version: 1.0
-Content-type: text/plain; charset=iso-8859-1
-X-Priority: 3
-X-Mailer: Some Chess
-';
-		$headers 	.= 'From: "Some Chess" <'.$emailAddress.'>';
+		$headers =	'From: "SomeChess" <somechess@'.$domain.'>'."\n";
 		$message	= $menuFuncStr[10].$friend.$menuFuncStr[11].$domain.$homeFolder.$menuFuncStr[22].$name.$menuFuncStr[12].$rPassword.$menuFuncStr[13];
 		$message = wordwrap($message,100);
 		mail($email,$subject,$message,$headers);

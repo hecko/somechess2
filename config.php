@@ -11,7 +11,6 @@ $lang		= 'en';			// language Some Chess uses
 $firstrun	= false;		// DO NOT EDIT THIS LINE
 $playerImgDir	= 'playerImg';		// player images directory
 $emailMove	= true;			// send an email after each move
-$emailAddress	= 'somechess@blava.net';		// email to be used for sent emails
 $showChat	= true;			// show chat box for every game
 $allowRegister	= true;			// allow self-registration of users
 
