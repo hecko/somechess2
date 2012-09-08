@@ -1,5 +1,6 @@
 <?PHP
 require_once('loginon.php');
+echo '<div class="error">This functionality does not really work. Please edit config.php file directly.</div>';
 if($_SESSION['power']>3){
 	if (!is_writable('config.php')) {
 		echo '<div class="error">'.$adminStr[19].'</div>';
