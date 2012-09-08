@@ -243,7 +243,7 @@ function parsePGN($pgn,$movesNum=false,$playerMove=2,$toMoves=null,$newGame=null
 	for($i=1;$i<=$movesNum;++$i){
 		$moveSet 	= explode(' ',$moves[$i]);
 		if($toMoves && !empty($moveSet[0])){
-			$queryMove	= 'INSERT INTO '.dbPre.'moves (gameID,moveNum,whiteMove,blackMove) VALUES ("'.$gameID.'","'.$i.'","'.$moveSet[0].'","'.$moveSet[1].'")';
+			$queryMove	= 'INSERT INTO '.dbPre.'moves (gameID,moveNum,whiteMove,blackMove,time) VALUES ("'.$gameID.'","'.$i.'","'.$moveSet[0].'","'.$moveSet[1].'",'.time().')';
 			mysql_query($queryMove)or die('<div class="error">'.errorDBStr.' (pp-7)</div>');
 		}
 		if($i>$movesNum-1)$playerMovesNum = $playerMove;		

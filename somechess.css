@@ -207,7 +207,7 @@ a.menuHeadLink:hover {color:#C4DCF0}
 	position:absolute;
 	top:32.3em;
 	left:55.6em;
-	width:17em
+	width:24em
 }
 body > #chatter {top:33.3em}
 #chatIn {
@@ -216,7 +216,7 @@ body > #chatter {top:33.3em}
 	margin:0.4em 0.1em 0 0.2em;
 	color:#4E5666;
 	float:left;
-	width:12em
+	width:17em
 }
 #board {
 	background:#b5b5b5;
@@ -234,7 +234,7 @@ body > #chatter {top:33.3em}
 	position:absolute;
 	top:5em;
 	left:54.5em;
-	width:20em;
+	width:27em;
 	height:43em
 }
 #chat {
@@ -242,7 +242,7 @@ body > #chatter {top:33.3em}
 	position:absolute;
 	top:1.5em;
 	left:0.9em;
-	width:18em;
+	width:25em;
 	height:26.5em
 }
 .chat_butt {

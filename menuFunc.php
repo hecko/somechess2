@@ -49,7 +49,6 @@ function invite($name,$email,$friend,$domain,$homeFolder,$startPower,$menuFuncSt
 	$queryPlayers		= 'SELECT name FROM '.dbPre.'players WHERE name="'.$name.'"';
 	$resultPlayers		= mysql_query($queryPlayers)or die('<div class="error">'.errorDBStr.' (iv-1)</div>');	
 	$namedPlayers		= mysql_num_rows($resultPlayers);
-	$invDate			= date("Y-m-d");
 	if(!$name || !$email){
 		return '<div class="error">'.$menuFuncStr[6].'</div>';
 	}elseif(strlen($name)>20 || strlen($name)<4){
@@ -71,7 +70,7 @@ X-Mailer: Some Chess
 		$message	= $menuFuncStr[10].$friend.$menuFuncStr[11].$domain.$homeFolder.$menuFuncStr[22].$name.$menuFuncStr[12].$rPassword.$menuFuncStr[13];
 		$message = wordwrap($message,100);
 		mail($email,$subject,$message,$headers);
-		$queryInvite 	= 'INSERT INTO '.dbPre.'players (name,pword,power,invitedBy,addDate,pic) VALUES ("'.$name.'","'.$password.'","'.$startPower.'","'.$_SESSION['id'].'","'.$invDate.'","default.png")';
+		$queryInvite 	= 'INSERT INTO '.dbPre.'players (name,pword,power,invitedBy,addDate,pic) VALUES ("'.$name.'","'.$password.'","'.$startPower.'","'.$_SESSION['id'].'","'.time().'","default.png")';
 		mysql_query($queryInvite)or die('<div class=error>'.errorDBStr.' (iv-2)</div>');
 		return $menuFuncStr[14];
 	}

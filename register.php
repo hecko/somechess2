@@ -26,7 +26,6 @@ function joinChess($name,$pass,$startPower,$regStr){
 	$queryPlayers		= 'SELECT id FROM '.dbPre.'players WHERE name="'.$name.'" LIMIT 1';
 	$resultPlayers		= mysql_query($queryPlayers)or die('<div class="error">'.errorDBStr.' (rg-1)</div>');	
 	$numPlayers			= mysql_num_rows($resultPlayers);
-	$now				= date(Ymd);
 	if($name == $pass){
 		return '<div class="error">'.$regStr[9].'</div>';
 	}elseif(!$name || !$pass){
@@ -39,7 +38,7 @@ function joinChess($name,$pass,$startPower,$regStr){
 		return '<div class="error">'.$regStr[8].'</div>';
 	}else{
 		$password	= md5($pass);
-		$queryJoin 	= 'INSERT INTO '.dbPre.'players (name,pword,power,invitedBy,addDate,pic) VALUES ("'.$name.'","'.$password.'","'.$startPower.'","X","'.$now.'","default.png")';
+		$queryJoin 	= 'INSERT INTO '.dbPre.'players (name,pword,power,invitedBy,addDate,pic) VALUES ("'.$name.'","'.$password.'","'.$startPower.'","X","'.time().'","default.png")';
 		mysql_query($queryJoin)or die('<div class=error>'.errorDBStr.' (rg-2)</div>');
 		return '<div class="message"  style="top:420px;">'.$regStr[4].$name.'</div>';
 	}

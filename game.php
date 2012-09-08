@@ -33,7 +33,7 @@ echo'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.o
 		<h3>'.$gameStr[0].'</h3>
 		</iframe>';
 	}
-	if(!$status && $showChat == 1){
+	if(!$status && $showChat){
 		echo'<div id="chat_panel">
 		<iframe src="chat.php?gameID=',$gameID,'#end" frameborder="0" allowtransparency="true" id="chat">
 			<h3>'.$gameStr[1].'</h3>

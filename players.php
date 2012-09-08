@@ -121,7 +121,7 @@ if($do =='players' || !$do){
 		$stats[$i]['name'] 		= mysql_result($resultPlayer,$i,'name');
 		$stats[$i]['realname'] 	= mysql_result($resultPlayer,$i,'realname');
 		$stats[$i]['location'] 	= mysql_result($resultPlayer,$i,'location');
-		$stats[$i]['addDate'] 	= formatDate(mysql_result($resultPlayer,$i,'addDate'));
+		$stats[$i]['addDate'] 	= date("d M y H:i",mysql_result($resultPlayer,$i,'addDate'));
 		$stats[$i]['invitedBy'] = mysql_result($resultPlayer,$i,'invitedBy');
 		$stats[$i]['lastOnline'] = date("d M y H:i",mysql_result($resultPlayer,$i,'lastOnline'));
 		$stats[$i]['wins'] 		= mysql_result($resultPlayer,$i,'wins');

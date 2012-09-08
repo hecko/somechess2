@@ -146,21 +146,21 @@ function moveIt($locations,$oldSpot,$newSpot,$moveNum,$gameID,$canCastle,$player
 				echo '<div id="info" class="badMove">'.($spRules['error']).'</div>';
 				return $locations;
 			}else{		
-				//--throw the notation into the moves DB
+				//--insert the notation into the moves table - for further analysis
 				if($playerColor == 'l'){
-					$queryNote		= 'INSERT INTO '.dbPre.'moves (gameID,moveNum,whiteMove) VALUES ("'.$gameID.'","'.$moveNum.'","'.$moveNote.'")';
-					$nextMoveNum	= $moveNum;
-					$nextTurnColor	= 'black';
+					$queryNote = 'INSERT INTO '.dbPre.'moves (gameID,moveNum,whiteMove,whiteTime) VALUES ("'.$gameID.'","'.$moveNum.'","'.$moveNote.'",'.time().')';
+					$nextMoveNum = $moveNum;
+					$nextTurnColor = 'black';
 				}else{
-					$queryNote		= 'UPDATE '.dbPre.'moves SET blackMove="'.$moveNote.'" WHERE gameID="'.$gameID.'" AND moveNum="'.$moveNum.'"';
-					$nextMoveNum	= $moveNum + 1;
-					$nextTurnColor	= 'white';
+					$queryNote = 'UPDATE '.dbPre.'moves SET blackMove="'.$moveNote.'",blackTime='.time().' WHERE gameID="'.$gameID.'" AND moveNum="'.$moveNum.'"';
+					$nextMoveNum = $moveNum + 1;
+					$nextTurnColor = 'white';
 				}
 				mysql_query($queryNote)or die('<div class="error">'.errorDBStr.' (mv-1)</div>');	
 				//--format the array and throw it into the DB, then send out the new array
 				$newLocationsDB 	= serialize($newLocations);
 				$thisMove			= serialize($thisMove);				
-				$now			 	= date(YmdHis);
+				$now			 	= date('YmdHis');
 				$color				= ($playerColor == 'd')? 'b' : 'w';
 				$queryMove 			= 'UPDATE '.dbPre.'games SET setup=\''.$newLocationsDB.'\', nextMoveNum="'.$nextMoveNum.'", nextTurnColor="'.$nextTurnColor.'", '.$color.'Castle=\''.$canCastle.'\', lastMove=\''.$thisMove.'\', gameDate="'.$now.'", reqDraw="0", reqUndo="0" WHERE gameID="'.$gameID.'"';
 				mysql_query($queryMove)or die('<div class="error">'.errorDBStr.' (mv-2)</div>');
