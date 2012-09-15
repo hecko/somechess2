@@ -176,7 +176,7 @@ function moveIt($locations,$oldSpot,$newSpot,$moveNum,$gameID,$canCastle,$player
 					$addr = mysql_result($resultemail,0,'email');
 					$message = $emailStr[1].$_SESSION['vs'.$gameID].$emailStr[2].$_SESSION['name'].
 						$emailStr[3].$moveNote.$emailStr[4].$gameID.')'.
-						"\nChess link: http://".$domain.$homeFolder."\n";
+						"\nChess link: http://".$domain.$homeFolder."/?u=".$_SESSION['vs'.$gameID]."\n";
 					$headers  	= 'MIME-Version: 1.0
 Content-type: text/plain; charset=iso-8859-1
 Date: '.date("r").'

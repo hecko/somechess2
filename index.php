@@ -1,37 +1,10 @@
-<!--
-/***************************************************************************************
-** "Some Chess" some rights reserved 2007
-** Some Chess written by Jon Link
-** 
-** This library is free software; you can redistribute it and/or
-** modify it under the terms of the GNU Lesser General Public
-** License as published by the Free Software Foundation; either
-** version 2.1 of the License, or (at your option) any later version.
-** 
-** This library is distributed in the hope that it will be useful,
-** but WITHOUT ANY WARRANTY; without even the implied warranty of
-** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-** Lesser General Public License for more details.
-** 
-** You should have received a copy of the GNU Lesser General Public
-** License along with this library; if not, write to the Free Software
-** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-** 
-** The images [p,r,n,q,k][d,l][d,l].png are GPL, from Wikimedia Commons, see gpl.txt
-**
-** a small portion of the code to display the chess board was taken from
-** phpChessBoard by Andreas Stieger http://www.wh-hms.uni-ulm.de/~tux/phpChessBoard/
-*****************************************************************************************/
--->
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
-<html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
-	<title>Some Chess</title>
-	<link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<body>
 <?php 
+include('header.php');
+
+if ($_GET['u']!='') {
+	$username = $_GET['u'];
+}
+
 include_once('config.php');
 if(!$host || !$dbUser || !$dbPass || !$database){ echo '<div style="background:#ccc;line-height:2em">please enter MySQL connection info in the config.php file<br />	
 veuillez écrire l\'information de raccordement de MySQL dans le dossier de config.php <br />
@@ -48,7 +21,7 @@ include_once('constants.php');
 //--LOGIN FORM
 $loginForm = '<form action="menu.php" method="post">
 	<div>
-		<p>'.$loginStr[1].' <input type="text" name="username" /></p>
+		<p>'.$loginStr[1].' <input type="text" name="username" value="'.$username.'"/></p>
 		<p>'.$loginStr[2].' <input type="password" name="password" /></p>
 		<input type="submit" value="'.$loginStr[0].'" class="butt" />
 		<input type="hidden" name="do" value="login" />
