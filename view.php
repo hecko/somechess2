@@ -9,7 +9,6 @@ include_once('standard.php');
 include_once('constants.php');
 include_once('gameFunc.php');
 $id				= validate($_SESSION['id']);
-online();
 $move			= $_GET['move'];
 $player			= $_GET['player'];
 $gameID			= $_GET['gameID'];

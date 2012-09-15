@@ -1,27 +1,23 @@
 <?php 
-//		Some Chess, a PHP multi-player chess server.
-//		Copyright (C) 2007 Jon Link
 session_start();
 require_once('loginon.php');
 require_once('config.php');
 include_once('languages/'.$lang.'_main.php');
 include_once('constants.php');
-include_once('standard.php');
 $_SESSION['endDate']	= date(YmdHis, mktime(0, 0, 0, date(m), date(d)-$endDays, date(Y)));
 $do = ($_POST['do']) ? $_POST['do'] : $_GET['do'];
 $status	= validate($_GET['status']);
 $gameID = ($_POST['gameID']) ? $_POST['gameID'] : validate($_GET['gameID']);
 $vsName	= $_GET['vs'];
-online(); //update persons online status
 echo'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<title>SomeChess</title>
+	<title>SomeChess2</title>
 	<link rel="stylesheet" type="text/css" href="somechess.css">
 	</head>
 	<body>
-	<div id="menu"><p>SomeChess</p>',$menu,'</div>';
+	<div id="menu"><p>SomeChess2</p>',$menu,'</div>';
 	if($status !== 'view'){
 		echo'<iframe src="board.php?gameID=',$gameID,'&amp;do=',$do,'&amp;vs=',$vsName,'" frameborder="0" allowtransparency="true" id="board">
 		<h3>'.$gameStr[0].'</h3>

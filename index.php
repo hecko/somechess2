@@ -1,6 +1,7 @@
 <?php 
 include('header.php');
 
+//if we have the username set in GET param, use it for login form
 if ($_GET['u']!='') {
 	$username = $_GET['u'];
 }
@@ -42,7 +43,7 @@ if(file_exists('install.php')){
 		if($udpate) echo '<div class="message">'.$udpate.'</div>';
 	}
 }
-//--RESET PASSWORD
+//--RESET PASSWORD - lost - lost password
 $help = ($_POST['help']) ? $_POST['help'] : $_GET['help'];
 if($help === 'lost'){
 echo'<form action="index.php" method="post" id="lost">
@@ -75,7 +76,7 @@ echo'<form action="index.php" method="post" id="lost">
 	echo requestPass($_POST['name'],$_POST['answer'],$loginStr);
 }
 if(!$help || $help == 'lost3'){
-//--ECHO STANDARD LOGIN FORM
+//--ECHO/display STANDARD LOGIN FORM
 	echo $loginForm;
 }
 //--REGISTER FORM

@@ -146,7 +146,7 @@ function moveIt($locations,$oldSpot,$newSpot,$moveNum,$gameID,$canCastle,$player
 				echo '<div id="info" class="badMove">'.($spRules['error']).'</div>';
 				return $locations;
 			}else{		
-				//--insert the notation into the moves table - for further analysis
+				//--insert the notation into the moves table - for further analysis and time logging
 				if($playerColor == 'l'){
 					$queryNote = 'INSERT INTO '.dbPre.'moves (gameID,moveNum,whiteMove,whiteTime) VALUES ("'.$gameID.'","'.$moveNum.'","'.$moveNote.'",'.time().')';
 					$nextMoveNum = $moveNum;

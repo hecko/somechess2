@@ -1,30 +1,5 @@
 <?php 
 session_start(); 
-/***************************************************************************************
-** "Some Chess" some rights reserved 2007
-** Some Chess written by Jon Linklocation
-** 
-** This library is free software; you can redistribute it and/or
-** modify it under the terms of the GNU Lesser General Public
-** License as published by the Free Software Foundation; either
-** version 2.1 of the License, or (at your option) any later version.
-** 
-** This library is distributed in the hope that it will be useful,
-** but WITHOUT ANY WARRANTY; without even the implied warranty of
-** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-** Lesser General Public License for more details.
-** 
-** You should have received a copy of the GNU Lesser General Public
-** License along with this library; if not, write to the Free Software
-** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-** 
-** The images [p,r,n,q,k][d,l][d,l].png are GPL, 
-** from Wikimedia Commons, see gpl.txt
-**
-** a small portion of the code to display the chess board was taken from
-** phpChessBoard by Andreas Stieger http://www.wh-hms.uni-ulm.de/~tux/phpChessBoard/
-*****************************************************************************************/
-
 require_once('config.php');
 include_once('languages/'.$lang.'_main.php');
 include_once('constants.php');
@@ -47,24 +22,26 @@ echo'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>SomeChess</title>
+	<title>SomeChess2</title>
 	<link rel="stylesheet" type="text/css" href="somechess.css" />
 </head>
 <body>
 <div id="menu">
 ';
-echo'<p>SomeChess</p>
+echo'<p>SomeChess2</p>
 ';
-if($do != 'logout') echo $menu;
-echo'
-</div>
-<div id="container">';
-if($_SESSION['power']>3) include('admin.php');
-if($do == 'logout'){ 
+//show shor menu links (menu/sign out/help)
+if ($do != 'logout') echo $menu;
+
+echo'</div><div id="container">';
+
+if ($_SESSION['power']>3) include('admin.php');
+
+if ($do == 'logout') { 
 	include('logout.php');
-}elseif($do == 'about'){
+} elseif ($do == 'about') {
 	include('about.html');
-}elseif($do == 'newGame'){
+} elseif ($do == 'newGame') {
 	$vs				= validate($_POST['vs']);
 	$color		 	= validate($_POST['color']);
 	if($color == 'white'){
@@ -244,40 +221,39 @@ if($do == 'logout'){
 	$message = '<div class="message">Backup script has run</div>';
 	unset($do);
 }
+
 if(($do =='menu' || !$do ) && !$firstrun){ 
-online(); //update persons online status
-//--GET USER'S INFO
-$queryPlayer		= 'SELECT * FROM '.dbPre.'players WHERE id="'.$_SESSION['id'].'" LIMIT 1';
-$resultPlayer		= mysql_query($queryPlayer)or die('<div class="error">'.errorDBStr.' (mp-1)</div>');	
-$name				= mysql_result($resultPlayer,0,'name');
-$realname			= mysql_result($resultPlayer,0,'realname');
-$email				= mysql_result($resultPlayer,0,'email');
-$location			= mysql_result($resultPlayer,0,'location');
-$power				= mysql_result($resultPlayer,0,'power');
+	//--GET USER'S INFO
+	$queryPlayer		= 'SELECT * FROM '.dbPre.'players WHERE id="'.$_SESSION['id'].'" LIMIT 1';
+	$resultPlayer		= mysql_query($queryPlayer)or die('<div class="error">'.errorDBStr.' (mp-1)</div>');	
+	$name			= mysql_result($resultPlayer,0,'name');
+	$realname		= mysql_result($resultPlayer,0,'realname');
+	$email			= mysql_result($resultPlayer,0,'email');
+	$location		= mysql_result($resultPlayer,0,'location');
+	$power			= mysql_result($resultPlayer,0,'power');
 
-//--GET OTHER PLAYER'S INFO
-$queryVS			= 'SELECT * FROM '.dbPre.'players WHERE id !="'.$_SESSION['id'].'" && invitedBy > -1 ORDER BY name';
-$resultVS			= mysql_query($queryVS)or die('<div class="error">'.errorDBStr.' (mp-2)</div>');
-$numVS				= mysql_num_rows($resultVS);
-for($i=0;$i<$numVS;++$i){
-	$key			= mysql_result($resultVS,$i,'id');
-	$VSid[$i]		= $key;
-	$VSname[$key]	= mysql_result($resultVS,$i,'name');
-}
+	//--GET OTHER PLAYER'S INFO
+	$queryVS			= 'SELECT * FROM '.dbPre.'players WHERE id !="'.$_SESSION['id'].'" && invitedBy > -1 ORDER BY name';
+	$resultVS			= mysql_query($queryVS)or die('<div class="error">'.errorDBStr.' (mp-2)</div>');
+	$numVS				= mysql_num_rows($resultVS);
+	for($i=0;$i<$numVS;++$i){
+		$key			= mysql_result($resultVS,$i,'id');
+		$VSid[$i]		= $key;
+		$VSname[$key]	= mysql_result($resultVS,$i,'name');
+	}
 
-//--DISPLAY MENU PANEL & DIALOG WINDOW
-$dialog				= ($message)? $message : $menuStr[39].$_SESSION['name'];
-echo'
-<div class="subcontainer">
-';
-include('menuPanel.php');
-echo'</div>
-<div id="dialog_window">'.$dialog.'</div>';
+	//--DISPLAY MENU PANEL & DIALOG WINDOW
+	$dialog				= ($message)? $message : $menuStr[39].$_SESSION['name'];
+	echo'<div class="subcontainer">';
+	include('menuPanel.php');
+	echo'</div><div id="dialog_window">'.$dialog.'</div>';
 
-//--DISPLAY GAMES: CURRENT, WINS, LOSES, DRAWS
-	echo '<div class="menubox" style="float:left;height:42em;width:50%">
-		<div class="submenu">
-			<a href="menu.php?do=menu&amp;games=inprogress" class="subitem">'.$menuStr[15].'</a><a href="menu.php?do=menu&amp;games=won" class="subitem">'.$menuStr[10].'</a><a href="menu.php?do=menu&amp;games=lost" class="subitem">'.$menuStr[11].'</a><a href="menu.php?do=menu&amp;games=drawn" class="subitem">'.$menuStr[12].'</a>
+	//--DISPLAY GAMES: CURRENT, WINS, LOSES, DRAWS
+	echo 	'<div class="menubox" style="float:left;height:42em;width:50%"><div class="submenu">
+		<a href="menu.php?do=menu&amp;games=inprogress" class="subitem">'.$menuStr[15].'</a>
+		<a href="menu.php?do=menu&amp;games=won" class="subitem">'.$menuStr[10].'</a>
+		<a href="menu.php?do=menu&amp;games=lost" class="subitem">'.$menuStr[11].'</a>
+		<a href="menu.php?do=menu&amp;games=drawn" class="subitem">'.$menuStr[12].'</a>
 		</div>';	
 	if($_GET['games'] == 'inprogress' || !$_GET['games']){
 		echo'<h2>',$name.$menuStr[9].' '.$menuStr[15].'</h2>
@@ -416,6 +392,7 @@ echo'</div>
 }
 echo '
 </div> <!--close container div-->';
+
 //--SHOW ADMIN PANEL
 if($power > 3 && ($do =='menu' || !$do)){
 	echo adminPanel($VSid,$VSname,$showBackup,$showUpdate,$adminStr);

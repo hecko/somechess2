@@ -54,7 +54,6 @@ echo'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.
 <div id="menu"><p>Some Chess</p>',$menu,'</div>
 <div id="container" style="width:67em">';
 
-online();
 include_once('playersFunc.php');
 if($do =='players' || !$do){ 
 //--display stats

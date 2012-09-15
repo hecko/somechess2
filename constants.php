@@ -1,4 +1,5 @@
 <?php
+include_once('standard.php');
 define('dbPre',$dbPre);
 define('deleteChat',$deleteChat);
 define('deleteMoves',$deleteMoves);
@@ -9,4 +10,5 @@ $menu = '<div style="position:absolute;top:0.5em;right:0.7em;">
 </div>';
 define('imgDir','img/');
 define('imgExt','.png');
+online(); //update this persons online status
 ?>
