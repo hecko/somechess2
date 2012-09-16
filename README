@@ -1,9 +1,5 @@
-READ ME: 2006.09.29 by Jon Link
-CONTACT: jon@astrodogpress.com
-
-UPDATED:
-2012 by Marcel Hecko
-maco@blava.net
+Original Author: jon@astrodogpress.com, 2006-09-21
+Updated and adopted by: Marcel Hecko, maco@blava.net, 2012-08-08
 
 /***************************************************************************************
 ** "Some Chess" some rights reserved 2006
@@ -31,14 +27,13 @@ maco@blava.net
 *****************************************************************************************/
 
 
-Some Chess is very easy to install, all you have to do is copy this folder & files 
-to your website and edit the config.php file.
-
+SomeChess2 is very easy to install, all you have to do is copy this folder & files 
+to your website, popupalte and prepare MySQL database and edit the config.php file.
 
 Requirements: PHP (tested with PHP 5.4), MySQL
 
 INSTALLATION:
-1)  create your Some Chess database, somechess is the default in the config file, but you 
+1)  	create your Some Chess database, somechess is the default in the config file, but you 
 	can change the name to anything you'd like.
 
 2) 	edit the example_config.php file with the proper info and rename the file config.php  
