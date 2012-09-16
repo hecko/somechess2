@@ -258,7 +258,7 @@ if(($do =='menu' || !$do ) && !$firstrun){
 	if($_GET['games'] == 'inprogress' || !$_GET['games']){
 		echo'<h2>',$name.$menuStr[9].' '.$menuStr[15].'</h2>
 		<div class="gamesbox">';
-		$queryGames			= 'SELECT * FROM '.dbPre.'games WHERE winner="0" AND (whitePlayerID="'.$_SESSION['id'].'" OR blackPlayerID="'.$_SESSION['id'].'") ORDER BY gameID DESC';
+		$queryGames			= 'SELECT * FROM '.dbPre.'games WHERE winner="0" AND (whitePlayerID="'.$_SESSION['id'].'" OR blackPlayerID="'.$_SESSION['id'].'") ORDER BY lastMoveTime DESC';
 		$resultGames		= mysql_query($queryGames)or die('<div class="error">'.errorDBStr.' (mg-1)</div>');	
 		$gamesNum			= mysql_num_rows($resultGames);
 		if($gamesNum == 0) echo'<p>( None )</p>';
@@ -273,6 +273,7 @@ if(($do =='menu' || !$do ) && !$firstrun){
 			$undo			= mysql_result($resultGames,$i,'reqUndo');	
 			//if(mysql_result($resultGames,$i,'gameDate')<$tooOld) $end = true;  //disabled for legacy support, to be enabled with 2.5 release
 			$gameDate		= mysql_result($resultGames,$i,'gameDate');	//--begin legacy support
+			$lastMoveTime               = mysql_result($resultGames,$i,'lastMoveTime');
 			if(strlen($gameDate) == 12) $gameDate = $gameDate.'00';		//--end legacy support
 			if($gameDate<$tooOld && $gameDate) $end = true;
 			if($blackID == $_SESSION['id']){$oppName = $VSname[$whiteID];$playerColor='black';}else{$oppName = $VSname[$blackID];$playerColor='white';}
@@ -286,7 +287,8 @@ if(($do =='menu' || !$do ) && !$firstrun){
 			if($end && $nTC !== $playerColor && $endDays){ 
 				$turns = '<span class="attn"> &mdash;'.$menuStr[27].'</span>';
 			}
-			echo '<p><a href="game.php?do=display&amp;gameID='.$gameID.'&amp;vs='.(str_replace(' ','_',$oppName)).'" class="gamelink">#'.$gameID.' Vs. '.$oppName.$turns.'</a></p>';
+			$lastMoveTimeHuman = time()-$lastMoveTime;
+			echo '<p><a href="game.php?do=display&amp;gameID='.$gameID.'&amp;vs='.(str_replace(' ','_',$oppName)).'" class="gamelink">#'.$gameID.' Vs. '.$oppName.$turns.'</a> (last move '.$lastMoveTimeHuman.'s ago)</p>';
 		}
 		echo'</div>';
 	}elseif($_GET['games'] == 'won'){

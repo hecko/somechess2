@@ -157,6 +157,8 @@ function moveIt($locations,$oldSpot,$newSpot,$moveNum,$gameID,$canCastle,$player
 					$nextTurnColor = 'white';
 				}
 				mysql_query($queryNote)or die('<div class="error">'.errorDBStr.' (mv-1)</div>');	
+				$querylastMoveTime = 'UPDATE games SET lastMoveTime='.time().' WHERE gameID='.$gameID;
+				mysql_query($querylastMoveTime)or die('<div class="error">'.errorDBStr.' (mv-1)</div>');
 				//--format the array and throw it into the DB, then send out the new array
 				$newLocationsDB 	= serialize($newLocations);
 				$thisMove			= serialize($thisMove);				
